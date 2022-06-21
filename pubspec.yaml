@@ -14,6 +14,9 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   json_annotation:
+  retrofit:
+  dio:
+  freezed:
 
 dev_dependencies:
   flutter_test:
@@ -22,7 +25,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner:
   json_serializable:
-
+  retrofit_generator:
+  freezed_annotation: 
 
 flutter:
 
