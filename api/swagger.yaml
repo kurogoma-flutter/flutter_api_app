@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: github
+  version: '1.0'
+  description: 'GithubApiで実行するコードの生成'
+  contact:
+    name: kurogoma939
+servers:
+  - url: 'https://api.github.com/search'
+tags:
+  - name: repository
+paths:
+  /repositories:
+    get:
+      operationId: get_repos
+      tags:
+        - repository
+      summary: リポジトリ取得
+      description: '検索条件に合致するリポジトリを取得します'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_get_repos'
+        '500':
+          description: "Internal Server Error"
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+components:
+  schemas:
+    response_get_repos:
+      title: response_get_repos
+      description: '取得したリポジトリ一覧'
+      type: object
+      properties:
+        q:
+          type: string
+          example: Flutter
+          description: 検索キーワード
+      required:
+        - q
+    internal_server_error:
+      title: internal_server_error
+      description: 内部処理エラー
+      type: object
